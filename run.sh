@@ -5,18 +5,12 @@ set -e
 options="--non-interactive -n"
 
 # check if we should trust selfsigned certificates
-if [[ "$TRUST_SELFSIGN" == "1" ]]; then
-  options="$options --trust"
-fi
+[[ "$TRUST_SELFSIGN" == "1" ]] && options="$options --trust"
 
 # check if we should sync hidden files
-if [[ "$SYNC_HIDDEN" == "1" ]]; then
-  options="$options -h"
-fi
+[[ "$SYNC_HIDDEN" == "1" ]] && options="$options -h"
 
 # check if we should silence output
-if [[ "$SHOW_OUTPUT" != "1" ]]; then
-  options="$options --silent"
-fi
+[[ "$SHOW_OUTPUT" != "1" ]] && options="$options --silent"
 
 owncloudcmd $options /data $SERVER
