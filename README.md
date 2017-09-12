@@ -22,7 +22,7 @@ The credentials are safed in the [netrc](https://linux.die.net/man/5/netrc) file
 
 For example:
 ```netrc
-default login myuser password mypassword
+machine my.owncloud.test login myuser password mypassword
 ```
 
 ## Options
