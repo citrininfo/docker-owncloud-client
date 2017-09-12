@@ -25,6 +25,10 @@ For example:
 machine my.owncloud.test login myuser password mypassword
 ```
 
+## Config Files
+
+Currently only `.netrc` and `sync-exclude.lst` (passed as `--exclude`) are supported. All other files are ignored.
+
 ## Options
 
 The following environment variables are supported:

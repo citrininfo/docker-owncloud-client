@@ -4,6 +4,9 @@ set -e
 
 options="--non-interactive -n"
 
+exlude_file="/conf/sync-exclude.lst"
+[[ -e "$exclude_file" ]] && options="$options --exclude $exclude_file"
+
 # check if we should trust selfsigned certificates
 [[ "$TRUST_SELFSIGN" == "1" ]] && options="$options --trust"
 
