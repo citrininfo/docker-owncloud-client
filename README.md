@@ -2,7 +2,9 @@
 
 This is a simple docker container to start single runs of owncloud syncs.
 
-## Usage Example
+## Usage
+
+### Example
 
 ```bash
 docker run -ti --rm \
@@ -16,7 +18,7 @@ docker run -ti --rm \
 
 This syncs the data in `~/owncloud/data` with `Path/To/Sync` on the server `my.owncloud.test`.
 
-## Credentials
+### Credentials
 
 The credentials are safed in the [netrc](https://linux.die.net/man/5/netrc) file `~/owncloud/conf/.netrc`
 
@@ -25,11 +27,11 @@ For example:
 machine my.owncloud.test login myuser password mypassword
 ```
 
-## Config Files
+### Config Files
 
 Currently only `.netrc` and `sync-exclude.lst` (passed as `--exclude`) are supported. All other files are ignored.
 
-## Options
+### Options
 
 The following environment variables are supported:
 <dl>
@@ -45,7 +47,7 @@ The following environment variables are supported:
   <dd>If set to 1 it removes --silent from the owncloudcmd</dd>
 </dl>
 
-## Custom Call
+### Custom Call
 
 If you don't want the custom options `--non-interactive -n` to be passed to owncloudcmd you can overwrite the CMD:
 
@@ -59,3 +61,18 @@ docker run -ti --rm \
 ```
 
 There you can pass any owncloudcmd options you might need.
+
+## Development
+
+Build with:
+
+```bash
+docker build --tag citrin/owncloud-client .
+```
+
+Push with:
+
+```bash
+docker login
+docker push citrin/owncloud-client
+```
